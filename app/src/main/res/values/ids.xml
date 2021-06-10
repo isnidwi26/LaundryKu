@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="button_ubahprofil" type="id" />
+    <item name="topview" type="id" />
+    <item name="textView_profil" type="id" />
+    <item name="kiriprofil" type="id" />
+    <item name="logout" type="id" />
+    <item name="tampilan_nama" type="id" />
+    <item name="tampilan_notlp" type="id" />
+</resources>
