@@ -20,9 +20,6 @@ class LoginActivity : AppCompatActivity(){
     private lateinit var email : EditText
     private lateinit var pass : EditText
 
-
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.halaman_login)
@@ -77,7 +74,7 @@ class LoginActivity : AppCompatActivity(){
                         val user = auth.currentUser
                         startActivity(Intent(this@LoginActivity,HomeActivity::class.java))
                         finish()
-                        //ambil data dari relatime database
+
                     } else {
                         // If sign in fails, display a message to the user.
                         Log.w("debug", "signInWithEmail:failure", task.exception)
