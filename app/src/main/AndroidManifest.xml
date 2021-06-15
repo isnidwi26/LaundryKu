@@ -9,7 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LaundryKu.NoActionBar">
-        <activity android:name=".LogoutActivity"></activity>
+        <activity android:name=".ViewPesanan"></activity>
+        <activity android:name=".Pesanan1Activity" />
+        <activity android:name=".Pesanan2Activity" />
+        <activity android:name=".EditProfilActivity" />
+        <activity android:name=".PembukuanMingguanActivity" />
+        <activity android:name=".PembukuanBulananActivity" />
+        <activity android:name=".PembukuanHarianActivity" />
+        <activity android:name=".PembukuanActivity" />
+        <activity android:name=".LogoutActivity" />
         <activity android:name=".ProfilActivity" />
         <activity android:name=".ResetPassActivity" />
         <activity android:name=".SplashScreen">

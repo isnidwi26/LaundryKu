@@ -11,6 +11,10 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
+import java.util.*
+import kotlin.collections.HashMap
+
+
 
 
 class RegisActivity : AppCompatActivity(){
@@ -67,7 +71,7 @@ class RegisActivity : AppCompatActivity(){
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("debug", "data berhasil dibuat!")
-                    val user = auth.currentUser
+
                     saveDataUser()
                     Intent(this@RegisActivity, LoginActivity::class.java).also {
                         startActivity(it)
@@ -82,15 +86,13 @@ class RegisActivity : AppCompatActivity(){
     }
 
     private fun saveDataUser(){
+        val user = auth.currentUser!!
         database = FirebaseFirestore.getInstance()
-
         val hashMap :HashMap<String, Any> = HashMap()
-        hashMap["nama_toko"] = nama.text.toString()
-        hashMap["no_telp"] = telp.text.toString()
+        hashMap["nama_toko"] to nama
+        hashMap["no_telp"] to telp
 
-
-
-        database.collection("data_toko").document().set(hashMap)
+        database.collection("data_toko").document(user.uid).set(hashMap)
             .addOnSuccessListener {
                 Toast.makeText(this,"Data sukses dibuat",Toast.LENGTH_SHORT).show()
             }

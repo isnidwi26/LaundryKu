@@ -22,8 +22,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.835" />
 
-    <View
-        android:id="@+id/topview"
+    <ImageView
+        android:id="@+id/toolbarOutput"
         android:layout_width="413dp"
         android:layout_height="494dp"
         android:background="#61A2F9"
@@ -94,7 +94,7 @@
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/topview" />
+        app:layout_constraintTop_toTopOf="@+id/toolbarOutput" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,18 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".HomeActivity">
 
-
-    <ImageButton
-        android:id="@+id/button_pembukuan"
-        android:layout_width="317dp"
-        android:layout_height="231dp"
-        android:layout_marginTop="30dp"
-        android:background="#FFFFFF"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_pesanan"
-        app:srcCompat="@drawable/pembukuan" />
-
     <ImageButton
         android:id="@+id/button_pesanan"
         android:layout_width="wrap_content"
@@ -30,36 +18,68 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/pesanan" />
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/menu_actionbar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="#61A2F9"
-        android:elevation="5dp"
-        android:minHeight="65dp"
-        android:visibility="visible"
-        app:barrierMargin="10dp"
+    <ImageButton
+        android:id="@+id/button_pembukuan"
+        android:layout_width="317dp"
+        android:layout_height="231dp"
+        android:layout_marginTop="30dp"
+        android:background="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/button_pesanan"
+        app:srcCompat="@drawable/pembukuan" />
 
-    <Button
-        android:id="@+id/btn_keluar"
-        android:layout_width="256dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="8dp"
-        android:text="KELUAR"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:backgroundTint="#365E7D"
-        app:cornerRadius="30dp"
+<!--    <Button-->
+<!--        android:id="@+id/btn_keluar"-->
+<!--        android:layout_width="256dp"-->
+<!--        android:layout_height="50dp"-->
+<!--        android:layout_marginTop="8dp"-->
+<!--        android:text="KELUAR"-->
+<!--        android:textColor="#FFFFFF"-->
+<!--        android:textSize="20sp"-->
+<!--        app:backgroundTint="#365E7D"-->
+<!--        app:cornerRadius="30dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.496"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.931" />-->
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarOutput"
+        android:layout_width="419dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="141dp"
+        android:background="#61A2F9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.931" />
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:id="@+id/toProfil"
+            android:layout_width="53dp"
+            android:layout_height="55dp"
+            android:layout_marginEnd="24dp"
+            android:layout_gravity="end"
+            app:layout_constraintBottom_toBottomOf="@+id/toolbarOutput"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/profil" />
+
+        <ImageView
+            android:id="@+id/laundryKu"
+            android:layout_width="230dp"
+            android:layout_height="50dp"
+            app:srcCompat="@drawable/laundryku"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
