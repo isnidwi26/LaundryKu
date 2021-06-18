@@ -1,16 +1,17 @@
 package com.apmob.laundryku
 
+import android.app.DatePickerDialog
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
+import java.text.SimpleDateFormat
+import java.util.*
 
 class Pesanan1Activity : AppCompatActivity() {
 
@@ -23,10 +24,12 @@ class Pesanan1Activity : AppCompatActivity() {
     private lateinit var namaPelanggan : EditText
     private lateinit var alamat : EditText
     private lateinit var noTelp : EditText
-    private lateinit var tglPesan : EditText
-    private lateinit var tglSelesai : EditText
+    private lateinit var tglPesan : TextView
+    private lateinit var tglSelesai : TextView
     private lateinit var jenisCucian : EditText
     private lateinit var jumlahCucian : EditText
+    private lateinit var btntglpesan : ImageView
+//    private lateinit var btntglselesai : ImageView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +45,40 @@ class Pesanan1Activity : AppCompatActivity() {
         tglSelesai = findViewById(R.id.text_tanggalselesai)
         jenisCucian = findViewById(R.id.etjeniscucian)
         jumlahCucian = findViewById(R.id.etjumlahcucian)
+        btntglpesan = findViewById(R.id.btn_tglpesan)
+//        btntglselesai = findViewById(R.id.btn_tglselesai)
+
+
+
+        btntglpesan.setOnClickListener {
+            val calPesan = Calendar.getInstance()
+            val tanggalPesanListener =
+                DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+                    calPesan.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+                    calPesan.set(Calendar.MONTH, month)
+                    calPesan.set(Calendar.YEAR, year)
+                    tglPesan.text = SimpleDateFormat("dd/MM/yyyy").format(calPesan.time)
+                }
+            DatePickerDialog(
+                this, tanggalPesanListener, calPesan.get(Calendar.YEAR), calPesan.get(Calendar.MONTH),
+                calPesan.get(Calendar.DAY_OF_MONTH)
+            ).show()
+        }
+
+//        btntglselesai.setOnClickListener {
+//            val calSelesai = Calendar.getInstance()
+//            val tanggalSelesaiListener =
+//                DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+//                    calSelesai.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+//                    calSelesai.set(Calendar.MONTH, month)
+//                    calSelesai.set(Calendar.YEAR, year)
+//                    tglSelesai.text = SimpleDateFormat("dd/MM/yyyy").format(calSelesai.time)
+//                }
+//            DatePickerDialog(
+//                this, tanggalSelesaiListener, calSelesai.get(Calendar.YEAR), calSelesai.get(Calendar.MONTH),
+//                calSelesai.get(Calendar.DAY_OF_MONTH)
+//            ).show()
+//        }
 
 
         btnbatalPesan1 = findViewById(R.id.btn_backhome)
@@ -49,23 +86,20 @@ class Pesanan1Activity : AppCompatActivity() {
             finish()
         }
 
-        btnlanjutPesan1 = findViewById(R.id.btn_lanjut)
+        btnlanjutPesan1 = findViewById(R.id.btn_lanjutinput2)
         btnlanjutPesan1.setOnClickListener {
             createDataToko()
-            startActivity(Intent(this,Pesanan2Activity::class.java))
+
         }
 
     }
 
     private fun createDataToko(){
-
-
-
         val namaPelanggan = namaPelanggan.text.toString().trim()
         val alamat = alamat.text.toString().trim()
         val notelp = noTelp.text.toString().trim()
-        val tglPesan = tglPesan.text.toString().trim()
-        val tglSelesai = tglSelesai.text.toString().trim()
+        val tglPesan = tglPesan.text
+        val tglSelesai = tglSelesai.text
         val jenisCucian = jenisCucian.text.toString().trim()
         val jumlahCucian = jumlahCucian.text.toString().trim()
 
@@ -83,15 +117,6 @@ class Pesanan1Activity : AppCompatActivity() {
         if (notelp.isEmpty()){
             Toast.makeText(this@Pesanan1Activity, "Isi nomer telepon!", Toast.LENGTH_SHORT).show()
         }
-        if (tglPesan.isEmpty()){
-            Toast.makeText(this@Pesanan1Activity, "Isi tanggal pesanan!", Toast.LENGTH_SHORT).show()
-        }
-        if (tglPesan.isEmpty()){
-            Toast.makeText(this@Pesanan1Activity, "Isi tanggal pesanan!", Toast.LENGTH_SHORT).show()
-        }
-        if (tglSelesai.isEmpty()){
-            Toast.makeText(this@Pesanan1Activity, "Isi tanggal selesai!", Toast.LENGTH_SHORT).show()
-        }
         if (jenisCucian.isEmpty()){
             Toast.makeText(this@Pesanan1Activity, "Isi jenis cucian!", Toast.LENGTH_SHORT).show()
         }
@@ -102,19 +127,21 @@ class Pesanan1Activity : AppCompatActivity() {
 
 
         val dataPesanan = hashMapOf(
-            "Nama Pelanggan" to namaPelanggan,
+            "Nama_Pelanggan" to namaPelanggan,
             "Alamat" to alamat,
-            "No Telp" to notelp,
-            "Tanggal Pesan" to tglPesan,
-            "Tanggal Selesai" to tglSelesai,
-            "Jenis Cucian" to jenisCucian,
-            "Jumlah Cucian" to jumlahCucian
+            "NoTelp" to notelp,
+            "Tanggal_Pesan" to tglPesan,
+//            "Tanggal Selesai" to tglSelesai,
+            "Jenis_Cucian" to jenisCucian,
+            "Jumlah_Cucian" to jumlahCucian
         )
-        db.collection("Data Pesanan").document(user.uid).collection("Pesanan")
+        db.collection("DataPesanan").document(user.uid).collection("Pesanan")
             .add(dataPesanan)
             .addOnSuccessListener{
                 Log.d("debug",it.toString())
                 Log.d("debug","data sudah disimpan")
+                val id = it.id
+                startActivity(Intent(this,Pesanan2Activity::class.java).putExtra("idPesanan",id))
             }
             .addOnFailureListener {
                 Log.d("debug","data tidak tersimpan")

@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="#FFFFFF"
+    android:outlineProvider="none"
+    app:layout_insetEdge="bottom">
 
 
-    <Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="419dp"
+        android:layout_height="70dp"
         android:background="#61A2F9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -19,17 +21,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
-        <TextView
-            android:id="@+id/textView_pembukuan"
+        <com.google.android.material.appbar.MaterialToolbar
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pesanan"
-            android:textColor="#FFFFFF"
-            android:textSize="24dp"
-            tools:layout_editor_absoluteX="57dp"
-            tools:layout_editor_absoluteY="16dp" />
+            android:layout_height="match_parent"
+            app:title="Pesanan"
+            app:titleTextColor="#F1EEEE"
+            tools:layout_editor_absoluteX="18dp" />
 
-    </Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
 
     <androidx.cardview.widget.CardView
@@ -51,47 +50,37 @@
             android:outlineProvider="none">
 
 
-            <EditText
-                android:id="@+id/etNamaPelanggan"
-                android:layout_width="256dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:ems="10"
-                android:hint="Nama Pelanggan"
-                android:inputType="textPersonName"
-                android:textColor="#000000"
-                android:textColorHighlight="#000000"
-                android:textColorHint="#000000"
-                android:textColorLink="#000000"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.496"
+            <Button
+                android:id="@+id/btn_backhome"
+                android:layout_width="120dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="72dp"
+                android:layout_marginTop="60dp"
+                android:text="BATAL"
+                android:textColor="#FFFFFF"
+                android:textSize="20dp"
+                app:backgroundTint="#365E7D"
+                app:cornerRadius="10dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.054" />
+                app:layout_constraintTop_toBottomOf="@+id/etjumlahcucian" />
 
-            <EditText
-                android:id="@+id/etAlamat"
-                android:layout_width="256dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:ems="10"
-                android:hint="Alamat"
-                android:inputType="text"
-                android:textColor="#000000"
-                android:textColorHighlight="#000000"
-                android:textColorHint="#000000"
-                android:textColorLink="#000000"
-                app:layout_constraintBottom_toBottomOf="parent"
+            <Button
+                android:id="@+id/btn_lanjutinput2"
+                android:layout_width="120dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="60dp"
+                android:text="LANJUT"
+                android:textColor="#FFFFFF"
+                android:textSize="20dp"
+                app:backgroundTint="#365E7D"
+                app:cornerRadius="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.496"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.154" />
+                app:layout_constraintTop_toBottomOf="@+id/etjumlahcucian" />
 
             <EditText
                 android:id="@+id/etTelp"
-                android:layout_width="256dp"
+                android:layout_width="340dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:ems="10"
@@ -103,34 +92,27 @@
                 android:textColorLink="#000000"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.503"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.254" />
 
-            <EditText
-                android:id="@+id/text_tanggalpesan"
-                android:layout_width="256dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:ems="10"
-                android:hint="Tanggal Pesan"
-                android:inputType="text"
-                android:textColor="#000000"
-                android:textColorHighlight="#000000"
-                android:textColorHint="#000000"
-                android:textColorLink="#000000"
-                app:layout_constraintBottom_toBottomOf="parent"
+            <ImageView
+                android:id="@+id/btn_tglselesai"
+                android:layout_width="32dp"
+                android:layout_height="30dp"
+                app:layout_constraintBottom_toBottomOf="@+id/text_tanggalselesai"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.503"
+                app:layout_constraintHorizontal_bias="0.841"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.354" />
+                app:layout_constraintTop_toTopOf="@+id/text_tanggalselesai"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/kalendar" />
 
-            <EditText
+            <TextView
                 android:id="@+id/text_tanggalselesai"
-                android:layout_width="256dp"
-                android:layout_height="50dp"
+                android:layout_width="339dp"
+                android:layout_height="33dp"
                 android:layout_gravity="center"
                 android:ems="10"
                 android:hint="Tanggal Selesai"
@@ -139,16 +121,16 @@
                 android:textColorHighlight="#000000"
                 android:textColorHint="#000000"
                 android:textColorLink="#000000"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.503"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.454" />
+                app:layout_constraintVertical_bias="0.458" />
 
             <EditText
                 android:id="@+id/etjeniscucian"
-                android:layout_width="256dp"
+                android:layout_width="340dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:ems="10"
@@ -160,14 +142,14 @@
                 android:textColorLink="#000000"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.554" />
 
             <EditText
                 android:id="@+id/etjumlahcucian"
-                android:layout_width="256dp"
+                android:layout_width="340dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
                 android:ems="10"
@@ -179,65 +161,105 @@
                 android:textColorLink="#000000"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.654" />
 
-<!--            <EditText-->
-<!--                android:id="@+id/text_jenispaket"-->
-<!--                android:layout_width="256dp"-->
-<!--                android:layout_height="50dp"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:ems="10"-->
-<!--                android:hint="Jenis Paket"-->
-<!--                android:inputType="textPassword"-->
-<!--                android:textColor="#365E7D"-->
-<!--                android:textColorHighlight="#000000"-->
-<!--                android:textColorHint="#000000"-->
-<!--                android:textColorLink="#000000"-->
-<!--                app:layout_constraintBottom_toBottomOf="parent"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintHorizontal_bias="0.496"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toTopOf="parent"-->
-<!--                app:layout_constraintVertical_bias="0.754" />-->
-
-
-            <Button
-                android:id="@+id/btn_backhome"
-                android:layout_width="120dp"
-                android:layout_height="47dp"
-                android:layout_marginStart="64dp"
-                android:layout_marginTop="60dp"
-                android:text="BATAL"
-                android:textColor="#FFFFFF"
-                android:textSize="20dp"
-                app:backgroundTint="#365E7D"
-                app:cornerRadius="20dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etjumlahcucian" />
-
-            <Button
-                android:id="@+id/btn_lanjut"
-                android:layout_width="120dp"
-                android:layout_height="47dp"
-                android:layout_marginTop="60dp"
-                android:layout_marginEnd="60dp"
-                android:text="LANJUT"
-                android:textColor="#FFFFFF"
-                android:textSize="20dp"
-                app:backgroundTint="#365E7D"
-                app:cornerRadius="20dp"
+            <EditText
+                android:id="@+id/etNamaPelanggan"
+                android:layout_width="340dp"
+                android:layout_height="52dp"
+                android:layout_gravity="center"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:ems="10"
+                android:hint="Nama Pelanggan"
+                android:inputType="textPersonName"
+                android:textColor="#000000"
+                android:textColorHighlight="#000000"
+                android:textColorHint="#000000"
+                android:textColorLink="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/etjumlahcucian" />
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.054" />
+
+            <!--            <EditText-->
+            <!--                android:id="@+id/text_jenispaket"-->
+            <!--                android:layout_width="256dp"-->
+            <!--                android:layout_height="50dp"-->
+            <!--                android:layout_gravity="center"-->
+            <!--                android:ems="10"-->
+            <!--                android:hint="Jenis Paket"-->
+            <!--                android:inputType="textPassword"-->
+            <!--                android:textColor="#365E7D"-->
+            <!--                android:textColorHighlight="#000000"-->
+            <!--                android:textColorHint="#000000"-->
+            <!--                android:textColorLink="#000000"-->
+            <!--                app:layout_constraintBottom_toBottomOf="parent"-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintHorizontal_bias="0.496"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toTopOf="parent"-->
+            <!--                app:layout_constraintVertical_bias="0.754" />-->
+
+
+            <EditText
+                android:id="@+id/etAlamat"
+                android:layout_width="340dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:ems="10"
+                android:hint="Alamat"
+                android:inputType="text"
+                android:textColor="#000000"
+                android:textColorHighlight="#000000"
+                android:textColorHint="#000000"
+                android:textColorLink="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.154" />
+
+            <ImageView
+                android:id="@+id/btn_tglpesan"
+                android:layout_width="32dp"
+                android:layout_height="30dp"
+                app:layout_constraintBottom_toBottomOf="@+id/text_tanggalpesan"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.841"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/text_tanggalpesan"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/kalendar" />
+
+            <TextView
+                android:id="@+id/text_tanggalpesan"
+                android:layout_width="335dp"
+                android:layout_height="39dp"
+                android:hint="Tanggal Pesan"
+                android:outlineProvider="none"
+                android:textColor="#000000"
+                android:textColorHighlight="#000000"
+                android:textColorHint="#000000"
+                android:textColorLink="#000000"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.473"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.364" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

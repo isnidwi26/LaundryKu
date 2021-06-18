@@ -5,10 +5,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <Toolbar
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarInput"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="419dp"
+        android:layout_height="70dp"
         android:background="#61A2F9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -17,22 +17,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
-        <TextView
-            android:id="@+id/textView_pembukuan"
+        <com.google.android.material.appbar.MaterialToolbar
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Pesanan"
-            android:textColor="#FFFFFF"
-            android:textSize="24dp"
-            tools:layout_editor_absoluteX="57dp"
-            tools:layout_editor_absoluteY="16dp" />
+            android:layout_height="match_parent"
+            app:title="Pesanan"
+            app:titleTextColor="#F1EEEE"
+            tools:layout_editor_absoluteX="18dp" />
 
-    </Toolbar>
+    </androidx.appcompat.widget.Toolbar>
 
     <EditText
         android:id="@+id/etBeratCucian"
-        android:layout_width="256dp"
-        android:layout_height="50dp"
+        android:layout_width="340dp"
+        android:layout_height="52dp"
         android:layout_gravity="center"
         android:ems="10"
         android:hint="Berat Cucian"
@@ -50,8 +47,8 @@
 
     <EditText
         android:id="@+id/etHargaPerkilo"
-        android:layout_width="256dp"
-        android:layout_height="50dp"
+        android:layout_width="340dp"
+        android:layout_height="52dp"
         android:layout_gravity="center"
         android:ems="10"
         android:hint="Harga Perkilo"
@@ -69,11 +66,12 @@
 
     <TextView
         android:id="@+id/etTotalHarga"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="76dp"
+        android:layout_width="138dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="60dp"
         android:text="Total Harga"
+        android:textColor="#120D0D"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etHargaPerkilo" />
@@ -81,7 +79,7 @@
     <Button
         android:id="@+id/btn_backinput1"
         android:layout_width="120dp"
-        android:layout_height="47dp"
+        android:layout_height="48dp"
         android:layout_gravity="center"
         android:layout_marginStart="56dp"
         android:layout_marginTop="244dp"
@@ -89,14 +87,14 @@
         android:textColor="#FFFFFF"
         android:textSize="20dp"
         app:backgroundTint="#365E7D"
-        app:cornerRadius="20dp"
+        app:cornerRadius="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etHargaPerkilo" />
 
     <Button
-        android:id="@+id/btn_lanjutOutput"
+        android:id="@+id/btn_lanjutoutput"
         android:layout_width="120dp"
-        android:layout_height="47dp"
+        android:layout_height="48dp"
         android:layout_gravity="center"
         android:layout_marginTop="244dp"
         android:layout_marginEnd="60dp"
@@ -104,9 +102,20 @@
         android:textColor="#FFFFFF"
         android:textSize="20dp"
         app:backgroundTint="#365E7D"
-        app:cornerRadius="20dp"
+        app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etHargaPerkilo" />
+
+    <ImageView
+        android:id="@+id/cek_harga"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        app:layout_constraintEnd_toStartOf="@+id/etTotalHarga"
+        app:layout_constraintHorizontal_bias="0.931"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etHargaPerkilo"
+        app:srcCompat="@drawable/cek_harga" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

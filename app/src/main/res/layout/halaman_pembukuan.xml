@@ -6,6 +6,28 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="419dp"
+        android:layout_height="70dp"
+        android:background="#61A2F9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbarPembukuanharian"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:title="Pembukuan"
+            app:titleTextColor="#F1EEEE"
+            app:navigationIcon="@drawable/kiri"
+            tools:layout_editor_absoluteX="18dp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
     <Button
         android:id="@+id/button_rincian"
         android:layout_width="300dp"
@@ -55,7 +77,7 @@
         app:layout_constraintVertical_bias="0.59" />
 
     <Button
-        android:id="@+id/button_hariini2"
+        android:id="@+id/button_hariini"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:text="Hari Ini"
@@ -69,38 +91,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.387" />
-
-    <View
-        android:id="@+id/toolbarOutput"
-        android:layout_width="419dp"
-        android:layout_height="70dp"
-        android:background="#61A2F9"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="-4dp"
-        tools:layout_editor_absoluteY="2dp" />
-
-    <TextView
-        android:id="@+id/textView_pembukuan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pembukuan"
-        android:textColor="#FFFFFF"
-        android:textSize="24dp"
-        tools:layout_editor_absoluteX="57dp"
-        tools:layout_editor_absoluteY="16dp" />
-
-    <Button
-        android:id="@+id/kiriubahprofil"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:background="@drawable/kiri"
-        app:backgroundTint="#FFFFFF"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="16dp" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

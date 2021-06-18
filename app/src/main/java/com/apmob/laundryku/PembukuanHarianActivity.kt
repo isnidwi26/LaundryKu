@@ -7,5 +7,6 @@ class PembukuanHarianActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.halaman_pembukuan_1hari)
+
     }
 }

@@ -1,16 +1,15 @@
 package com.apmob.laundryku
 
 import android.content.Intent
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.SetOptions
 import com.google.firebase.ktx.Firebase
 
 class Pesanan2Activity : AppCompatActivity() {
@@ -23,12 +22,16 @@ class Pesanan2Activity : AppCompatActivity() {
     private lateinit var btnbatalPesan1 : Button
     private lateinit var btnlanjutPesan1 : Button
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.halaman_input_pesanan2)
 
         auth = Firebase.auth
         db = FirebaseFirestore.getInstance()
+
+
 
         beratCucian = findViewById(R.id.etBeratCucian)
         hargaCucian = findViewById(R.id.etHargaPerkilo)
@@ -39,11 +42,9 @@ class Pesanan2Activity : AppCompatActivity() {
             startActivity(Intent(this, Pesanan1Activity::class.java))
         }
 
-        btnlanjutPesan1 = findViewById(R.id.btn_lanjutOutput)
+        btnlanjutPesan1 = findViewById(R.id.btn_lanjutoutput)
         btnlanjutPesan1.setOnClickListener {
-
             buatPesanan()
-
         }
 
     }
@@ -52,6 +53,8 @@ class Pesanan2Activity : AppCompatActivity() {
 
         db = FirebaseFirestore.getInstance()
         val pelanggan = auth.currentUser!!
+
+        val idPesanan = intent.getStringExtra("idPesanan")
 
         val beratCucian = beratCucian.text.toString().trim()
         val hargaCucian = hargaCucian.text.toString().trim()
@@ -68,24 +71,24 @@ class Pesanan2Activity : AppCompatActivity() {
 
         val berat = beratCucian.toInt()
         val harga = hargaCucian.toInt()
-        val jumlahCucian = berat*harga
+        val totalHargaCucian = berat*harga
 
-        totalHarga.text = "Rp $jumlahCucian"
+        totalHarga.text = "Rp.$totalHargaCucian"
 
 
 
         val pesananLanjutan = hashMapOf(
-            "Berat Cucian" to beratCucian,
-            "Harga Perkilo" to hargaCucian,
-            "Jumlah Cucian" to jumlahCucian
-
+            "Berat_Cucian" to beratCucian,
+            "Harga_Perkilo" to hargaCucian,
+            "Jumlah_Cucian" to totalHargaCucian
         )
 
-        db.collection("Data Pesanan").document(pelanggan.uid).collection("Pesanan")
-            .add(pesananLanjutan)
+        db.collection("DataPesanan").document(pelanggan.uid).collection("Pesanan").document(idPesanan!!)
+            .set(pesananLanjutan, SetOptions.merge())
             .addOnSuccessListener{
                 Log.d("debug","data sudah disimpan")
-                startActivity(Intent(this,ViewPesanan::class.java))
+                startActivity(Intent(this,OutputPesananActivity::class.java).putExtra("idOutput",idPesanan))
+
             }
             .addOnFailureListener {
                 Log.d("debug","data tidak tersimpan")
