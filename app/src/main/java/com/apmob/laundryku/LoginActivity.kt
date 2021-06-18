@@ -94,9 +94,7 @@ class LoginActivity : AppCompatActivity(){
         val currentUser = auth.currentUser
         if(currentUser != null){
             Log.d("debug", "Masuk dengan Email:sukses")
-            val user = auth.currentUser
-            startActivity(Intent(this@LoginActivity,HomeActivity::class.java))
-            finish()
+
         }else{
             Log.d("debug", "Masuk dengan Email:gagal")
         }

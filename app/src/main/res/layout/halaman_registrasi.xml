@@ -7,28 +7,13 @@
     android:layout_height="match_parent"
     tools:context=".RegisActivity">
 
-    <EditText
-        android:id="@+id/text_passwordregistrasi"
-        android:layout_width="256dp"
-        android:layout_height="50dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:textColor="#365E7D"
-        android:textColorHighlight="#FFFFFF"
-        android:textColorHint="#5E000000"
-        android:textColorLink="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.571" />
 
     <EditText
         android:id="@+id/text_nama"
-        android:layout_width="256dp"
-        android:layout_height="50dp"
+        android:layout_width="330dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="Nama"
         android:inputType="textPersonName"
@@ -38,15 +23,15 @@
         android:textColorLink="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.309" />
 
     <EditText
         android:id="@+id/text_nomortelepon"
-        android:layout_width="256dp"
-        android:layout_height="50dp"
+        android:layout_width="330dp"
+        android:layout_height="56dp"
         android:ems="10"
         android:hint="Nomor Telepon"
         android:inputType="numberDecimal"
@@ -56,15 +41,15 @@
         android:textColorLink="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.397" />
+        app:layout_constraintTop_toBottomOf="@+id/text_nama"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/text_emailregistrasi"
-        android:layout_width="256dp"
-        android:layout_height="50dp"
+        android:layout_width="330dp"
+        android:layout_height="56dp"
         android:ems="10"
         android:hint="Email"
         android:inputType="textEmailAddress"
@@ -74,10 +59,27 @@
         android:textColorLink="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.486" />
+        app:layout_constraintTop_toBottomOf="@+id/text_nomortelepon"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <EditText
+        android:id="@+id/text_passwordregistrasi"
+        android:layout_width="330dp"
+        android:layout_height="56dp"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textColor="#365E7D"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorHint="#5E000000"
+        android:textColorLink="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_emailregistrasi" />
 
     <Button
         android:id="@+id/button_daftar"

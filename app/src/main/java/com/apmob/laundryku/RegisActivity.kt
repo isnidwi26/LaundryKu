@@ -12,7 +12,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import java.util.*
-import kotlin.collections.HashMap
+
 
 
 
@@ -51,28 +51,27 @@ class RegisActivity : AppCompatActivity(){
     }
 
     private fun createUser(){
-        val nama = nama.text.toString().trim()
-        val email = email.text.toString().trim()
-        val telp = telp.text.toString().trim()
-        val pass = pass.text.toString().trim()
+        val etnama = nama.text.toString().trim()
+        val etemail = email.text.toString().trim()
+        val ettelp = telp.text.toString().trim()
+        val etpass = pass.text.toString().trim()
 
-        if(nama.isEmpty()){
+        if(etnama.isEmpty()){
             Toast.makeText(this@RegisActivity, "Isi nama toko anda!", Toast.LENGTH_SHORT).show()
-        }else if(telp.isEmpty()){
+        }else if(ettelp.isEmpty()){
             Toast.makeText(this@RegisActivity, "Isi nomor telepon anda!", Toast.LENGTH_SHORT).show()
-        }else if(email.isEmpty()){
+        }else if(etemail.isEmpty()){
             Toast.makeText(this@RegisActivity, "Isi email toko anda!", Toast.LENGTH_SHORT).show()
-        }else if(pass.isEmpty()){
+        }else if(etpass.isEmpty()){
             Toast.makeText(this@RegisActivity, "Isi kata sandi anda!", Toast.LENGTH_SHORT).show()
         }
 
-        auth.createUserWithEmailAndPassword(email, pass)
+        auth.createUserWithEmailAndPassword(etemail, etpass)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("debug", "data berhasil dibuat!")
-
-                    saveDataUser()
+                    saveDataUser(etnama,ettelp)
                     Intent(this@RegisActivity, LoginActivity::class.java).also {
                         startActivity(it)
                     }
@@ -85,14 +84,16 @@ class RegisActivity : AppCompatActivity(){
             }
     }
 
-    private fun saveDataUser(){
+    private fun saveDataUser(nama:String,telp:String){
         val user = auth.currentUser!!
         database = FirebaseFirestore.getInstance()
-        val hashMap :HashMap<String, Any> = HashMap()
-        hashMap["nama_toko"] to nama
-        hashMap["no_telp"] to telp
+        val data = hashMapOf(
+            "nama_toko" to nama,
+            "no_telp" to telp
+        )
 
-        database.collection("data_toko").document(user.uid).set(hashMap)
+        database.collection("data_toko").document(user.uid)
+            .set(data)
             .addOnSuccessListener {
                 Toast.makeText(this,"Data sukses dibuat",Toast.LENGTH_SHORT).show()
             }

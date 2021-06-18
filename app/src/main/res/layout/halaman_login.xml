@@ -77,8 +77,8 @@
 
             <EditText
                 android:id="@+id/text_password"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_width="347dp"
+                android:layout_height="57dp"
                 android:ems="10"
                 android:hint="password"
                 android:inputType="textPassword"
@@ -95,8 +95,8 @@
 
             <EditText
                 android:id="@+id/text_email"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
+                android:layout_width="348dp"
+                android:layout_height="66dp"
                 android:ems="10"
                 android:hint="@string/prompt_email"
                 android:inputType="textEmailAddress"
